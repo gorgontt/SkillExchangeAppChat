@@ -3,23 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_search">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.skillexchangeapp.ui.home.HomeFragment"
+        android:id="@+id/navigation_search"
+        android:name="com.example.skillexchangeapp.ui.search.SearchFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_add"
+            app:destination="@id/navigation_add" />
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_messages"
+            app:destination="@id/navigation_messages" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.skillexchangeapp.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_add"
+        android:name="com.example.skillexchangeapp.ui.add.AddFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_add_to_navigation_messages"
+            app:destination="@id/navigation_messages" />
+        <action
+            android:id="@+id/action_navigation_add_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.skillexchangeapp.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_messages"
+        android:name="com.example.skillexchangeapp.ui.messages.MessagesFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_navigation_messages_to_profileFragment"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_messages_to_navigation_add"
+            app:destination="@id/navigation_add" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.skillexchangeapp.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_navigation_messages"
+            app:destination="@id/navigation_messages" />
+    </fragment>
 </navigation>
