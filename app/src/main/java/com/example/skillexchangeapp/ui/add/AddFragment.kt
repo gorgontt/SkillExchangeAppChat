@@ -22,16 +22,16 @@ class AddFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val addViewModel =
-            ViewModelProvider(this).get(AddViewModel::class.java)
+//        val addViewModel =
+//            ViewModelProvider(this).get(AddViewModel::class.java)
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        addViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+//        addViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
         return root
     }
 
